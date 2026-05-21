@@ -38,7 +38,7 @@ def show():
                     st.error(f"Error: {e}")
                     
     with col_db:
-        st.link_button("🗄️ Administrar InfluxDB", "https://grafana.com/auth", use_container_width=True)
+        st.link_button("🗄️ Administrar InfluxDB", "https://alissonpacheco72.grafana.net/goto/sbmfdh?orgId=stacks-1660538", use_container_width=True)
                     
     st.markdown("---")
     st.subheader("📝 Edición Rápida (Modo Excel)")

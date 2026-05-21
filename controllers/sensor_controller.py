@@ -18,6 +18,12 @@ class SensorController:
     def get_all_products(self):
         return self.csv_repo.get_all_products()
         
+    def get_low_stock_products(self, threshold=5):
+        df = self.get_all_products()
+        if df.empty:
+            return df
+        return df[df['quantity'] < threshold]
+        
     def get_product(self, product_id):
         return self.csv_repo.get_product(product_id)
 
