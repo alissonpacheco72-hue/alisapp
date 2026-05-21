@@ -1,0 +1,92 @@
+/* General App Styling */
+.stApp {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Styling */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+}
+
+.css-1544g2n {
+    padding-top: 2rem;
+}
+
+/* Hide Streamlit top bar and footer */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Custom Metrics Cards (since native st.metric is hard to style like a full card) */
+.custom-metric-card {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.custom-metric-title {
+    font-size: 0.9rem;
+    color: #64748B;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.custom-metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1E293B;
+}
+
+.custom-metric-delta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.delta-positive {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.delta-negative {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+/* Dataframe and Chart containers */
+.stDataFrame {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.stPlotlyChart {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #E2E8F0;
+}
+
+/* Buttons */
+.stButton > button {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(59, 88, 255, 0.3);
+}

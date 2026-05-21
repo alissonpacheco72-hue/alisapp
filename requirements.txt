@@ -1,0 +1,6 @@
+streamlit==1.33.0
+pandas==2.2.1
+plotly==5.20.0
+qrcode[pil]==7.4.2
+influxdb-client==1.42.0
+jupyter==1.0.0

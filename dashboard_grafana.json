@@ -1,0 +1,42 @@
+{
+  "title": "Sensor Stock - MVP Dashboard",
+  "timezone": "browser",
+  "panels": [
+    {
+      "title": "Alertas de Seguridad (Salidas Irregulares)",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 6, "x": 0, "y": 0 },
+      "targets": [
+        {
+          "query": "from(bucket: \"sensor_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"inventory_movement\")\n  |> filter(fn: (r) => r[\"_field\"] == \"alert_triggered\")\n  |> filter(fn: (r) => r[\"_value\"] == true)\n  |> count()",
+          "refId": "A"
+        }
+      ],
+      "options": { "colorMode": "background", "graphMode": "none" },
+      "fieldConfig": { "defaults": { "color": { "mode": "fixed", "fixedColor": "red" } } }
+    },
+    {
+      "title": "Tráfico de Inventario (Entradas vs Salidas)",
+      "type": "timeseries",
+      "gridPos": { "h": 10, "w": 18, "x": 6, "y": 0 },
+      "targets": [
+        {
+          "query": "from(bucket: \"sensor_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"inventory_movement\")\n  |> filter(fn: (r) => r[\"_field\"] == \"quantity\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "title": "Últimos Registros del Sensor",
+      "type": "table",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 10 },
+      "targets": [
+        {
+          "query": "from(bucket: \"sensor_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"inventory_movement\")\n  |> filter(fn: (r) => r[\"_field\"] == \"quantity\")\n  |> keep(columns: [\"_time\", \"product_id\", \"type\", \"_value\"])",
+          "refId": "A"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 38
+}

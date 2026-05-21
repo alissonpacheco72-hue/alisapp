@@ -1,0 +1,5 @@
+id,name,category,quantity,status,last_movement
+PROD-001,Laptop Dell,Electrónica,5,dentro,2024-05-20 10:00:00
+PROD-002,Monitor Samsung,Electrónica,3,fuera,2024-05-20 11:30:00
+PROD-003,Teclado Mecánico,Accesorios,10,dentro,2024-05-21 09:15:00
+PROD-004,Ratón Inalámbrico,Accesorios,15,dentro,2024-05-21 09:20:00
